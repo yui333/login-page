@@ -1,0 +1,203 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%; /* Garante que o body ocupe 100% da altura da tela */
+}
+
+body {
+    font-family: 'Creepster', Arial, sans-serif; /* Aplicando a fonte Creepster */
+    background-image: url("img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative; /* Necessário para o pseudo-elemento */
+    min-height: 100vh; /* Garante que o body ocupe pelo menos a altura total da tela */
+}
+
+body::after {
+    content: ""; /* Necessário para criar o pseudo-elemento */
+    position: fixed; /* Usar fixed para cobrir toda a tela */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3 ); /* Camada escura, ajuste a opacidade */
+    z-index: 1; /* Coloca a camada acima do fundo */
+}
+
+.container {
+    width: 90%; /* Largura responsiva */
+    max-width: 500px; /* Largura máxima */
+    min-height: 400px; /* Altura mínima */
+    padding: 20px; /* Adiciona um pouco de preenchimento */
+    backdrop-filter: blur(10px); /* Aumenta o efeito de vidro fosco */
+    background-color: rgba(169, 124, 40, 0.147); /* Muda para uma cor laranja assustadora */
+    z-index: 3; /* Coloca a camada acima do pseudo-elemento */
+    position: fixed; /* Muda para fixed para centralizar na tela */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o container */
+    border-radius: 26px; /* Adiciona bordas arredondadas */
+    box-shadow: 35px 35px 68px 0px rgba(128, 0, 128, 0.5),
+                inset -8px -8px 16px 0px rgba(128, 0, 128, 0.6),
+                inset 0px 11px 28px 0px rgb(128, 0, 128),
+                -10px -10px 20px rgba(128, 0, 128, 0.5),
+                10px 10px 20px rgba(128, 0, 128, 0.5); 
+    display: flex; /* Acrescenta mais sombras para um efeito mais neumórfico */
+    flex-direction: row; /* Alinha os itens em coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    margin: 0;
+}
+
+/* Media Queries para ajustes em telas menores */
+@media (max-width: 600px) {
+    .container {
+        width: 75%; /* Largura um pouco maior em telas pequenas */
+        min-height: 250px; /* Altura mínima reduzida para telas pequenas */
+        padding: 15px; /* Reduz o preenchimento */
+    }
+}
+.container2 {
+    display: flex; /* Acrescenta mais sombras para um efeito mais neumórfico */
+    flex-direction: row; /* Alinha os itens em coluna */
+    justify-content: center; /* Centraliza horizontalmente */
+    margin: 0;
+    top: 0%;
+    width: 230px;
+    height: 80px;
+    z-index: 2;
+    position: fixed;
+    background-color: rgba(169, 124, 40, 0.147); /* Cor laranja assustadora */
+    backdrop-filter: blur(10px); /* Aumenta o efeito de vidro fosco */
+    border-radius: 0px 0px 50px 50px; /* Adiciona bordas arredondadas */
+    box-shadow: 35px 35px 68px 0px rgba(255, 165, 0, 0.5),
+                inset -8px -8px 16px 0px rgba(255, 165, 0, 0.6),
+                inset 0px 11px 28px 0px rgb(255, 165, 0),
+                -10px -10px 20px rgba(255, 165, 0, 0.5),
+                10px 10px 20px rgba(255, 165, 0, 0.5); /* Acrescenta mais sombras para um efeito mais neumórfico */
+}
+.container2 a {
+    text-decoration: none; /* Remove a decoração do link */
+    color: rgb(255, 157, 0); /* Muda a cor do texto para branco */
+    font-size: 30px; /* Aumenta o tamanho da fonte */
+    margin-top: 17px;
+    text-shadow: 1px 1px 2px #800080, 0 0 25px #800080, 0 0 5px #800080, 0 0 10px #800080;
+    transition: 0.5s; /* Adiciona uma borda ao redor das letras com cor roxa */
+}
+.container2 a:hover {
+    font-size: 35px;
+}
+.container2:hover + .bruxa-container .bruxa {
+    left: 205%; /* Move a bruxa para a direita ao passar o mouse */
+}
+.bruxa-container {
+    position: absolute;
+    top: -120px;
+    width: 160px; /* Largura do Lottie Player */
+    height: 160px;
+    background-color: rgba(175, 171, 162, 0.247); /* Cor laranja assustadora */
+    backdrop-filter: blur(18px); /* Aumenta o efeito de vidro fosco */
+    border-radius: 100%; /* Adiciona bordas arredondadas */
+    box-shadow: 35px 35px 68px 0px rgba(128, 128, 128, 0.2),
+                inset -8px -8px 16px 0px rgba(128, 128, 128, 0.2),
+                inset 0px 11px 28px 0px rgb(128, 128, 128),
+                -10px -10px 20px rgba(128, 128, 128, 0.5),
+                10px 10px 20px rgba(128, 128, 128, 0.5); /* Adiciona uma sombra para dar profundidade */
+}
+.bruxa {
+    width: 180px; /* Largura do Lottie Player */
+    height: 180px; /* Altura do Lottie Player */
+    position: absolute; /* Posição absoluta para sobrepor o container */
+    top: -20px; /* Ajuste a posição vertical */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    z-index: 4; /* Aumenta o z-index para garantir que fique acima do container */
+    transition: left 1.2s ease; /* Adiciona uma transição suave ao movimento */
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 150%;
+    left: 0; 
+    position: absolute;
+
+}
+.form label { 
+    margin-bottom: 15px;
+}   
+.form input {
+    font-family: monospace;/* Utiliza a fonte Creepster para um estilo mais moderno */
+    color: #fea305; /* Muda a cor do texto para uma cor roxa mais escura */
+    font-size: 16px; /* Aumenta o tamanho da fonte para uma leitura mais clara */
+    padding: 0 20px 10px 20px; /* Reduz o preenchimento para aproximar o texto */
+    border: 1px solid #800080; /* Adiciona uma borda roxa */
+    border-radius: 20px; /* Adiciona bordas arredondadas para uma aparência mais moderna */
+    margin-bottom: 10px; /* Adiciona um espaço entre os inputs */
+}
+.form-text {
+    position: relative;
+    top: 5px;
+    font-family: monospace;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 2px #800080, 0 0 25px #800080, 0 0 5px #800080, 0 0 10px #800080;
+    
+}
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1px;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid #555;
+    background-color: rgba(169, 124, 40, 0.147);
+    color: #fff;
+    box-shadow: 0px 0px 2px 0px rgb(255, 165, 0);
+    text-shadow: 1px 1px 2px #80008000, 0 0 25px #8000809c, 0 0 5px #8000803e, 0 0 10px #80008039;
+}
+input[type="text"]::placeholder {
+    color: #aaa;
+    opacity: 1; /* Ensure the color is not affected by opacity */
+}
+.button-container {
+    display: grid;
+    position: absolute;
+    top: 70%;
+    width: 100px;
+    height: 50px;
+    border: 2px solid #d900ae;
+    border-radius: 5px;
+   -webkit-box-shadow: 4px 9px 17px 0px rgba(0, 0, 0, 0.75);
+-moz-box-shadow: 4px 9px 17px 0px rgba(0,0,0,0.75);
+box-shadow: 4px 9px 17px 0px rgba(0,0,0,0.75);
+}
+.button {
+    border: 1px;
+    background-color: rgba(175, 15, 175, 0.311);
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px #80008000, 0 0 25px #8000809c, 0 0 5px #8000803e, 0 0 10px #80008039;
+    font-family: monospace;
+    
+}
+.msg {
+    position: absolute;
+    top: 90%;
+    font-family: monospace;
+    color: #ffffffcc;
+    text-shadow: 1px 1px 2px #80008000, 0 0 25px #8000809c, 0 0 5px #8000803e, 0 0 10px #80008039;
+}
+.msg-account2 {
+    color: rgb(255, 187, 2);
+    font-weight: bold;
+    cursor: pointer;
+}
+.msg-account {
+    font-family: monospace;
+    color: #ffffffcc;
+    text-shadow: 1px 1px 2px #80008000, 0 0 25px #8000809c, 0 0 5px #8000803e, 0 0 10px #80008039;
+}
